@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NAJI ABDELLAH - NA</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="logo-white.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-obsidian: #121214;
+      --bg-charcoal: #1f1f23;
+      --bg-card: #18181c;
+      --border-katana: #292b2f;
+      --text-smoke: #8e8e93;
+      --text-light: #d1d1d6;
+      --text-white: #ffffff;
+      
+      --font-heading: 'Space Grotesk', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-obsidian);
+      color: var(--text-light);
+      font-family: var(--font-heading);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background-image: 
+        linear-gradient(to right, rgba(41, 43, 47, 0.15) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(41, 43, 47, 0.15) 1px, transparent 1px);
+      background-size: 40px 40px;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .mono {
+      font-family: var(--font-mono);
+    }
+
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-smoke);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* Navbar */
+    nav {
+      border-bottom: 1px solid var(--border-katana);
+      background: rgba(18, 18, 20, 0.85);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+    }
+
+    .logo-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-brand-icon {
+      height: 32px;
+      width: auto;
+      display: block;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .logo-brand:hover .logo-brand-icon {
+      transform: scale(1.06);
+      opacity: 0.9;
+    }
+
+    .logo-brand-text {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text-white);
+      letter-spacing: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-smoke);
+      text-decoration: none;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-white);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 100px 0 60px 0;
+      border-bottom: 1px solid var(--border-katana);
+    }
+
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-subtitle {
+      color: var(--text-smoke);
+      font-size: 0.9rem;
+      margin-bottom: 16px;
+    }
+
+    .hero-title {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      color: var(--text-white);
+      line-height: 1.1;
+      margin-bottom: 24px;
+      letter-spacing: -1px;
+    }
+
+    .hero-bio {
+      max-width: 780px;
+      font-size: 1.1rem;
+      color: var(--text-light);
+      margin-bottom: 32px;
+    }
+
+    .slogan-box {
+      display: inline-block;
+      padding: 12px 20px;
+      border-left: 3px solid var(--text-white);
+      background: var(--bg-charcoal);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--text-white);
+      letter-spacing: 0.05em;
+    }
+
+    .hero-image-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-image-frame {
+      position: relative;
+      width: 240px;
+      height: 240px;
+      border: 1px solid var(--border-katana);
+      background-color: var(--bg-charcoal);
+      padding: 8px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-image-frame::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      right: -6px;
+      width: 24px;
+      height: 24px;
+      border-right: 2px solid var(--text-white);
+      border-bottom: 2px solid var(--text-white);
+      pointer-events: none;
+    }
+
+    .hero-image-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: contrast(1.05);
+    }
+
+    /* Sections */
+    section {
+      padding: 80px 0;
+      border-bottom: 1px solid var(--border-katana);
+    }
+
+    .section-header {
+      margin-bottom: 48px;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      color: var(--text-white);
+      margin-top: 8px;
+    }
+
+    .category-title {
+      font-size: 1.15rem;
+      color: var(--text-white);
+      margin: 40px 0 20px 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .category-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background-color: var(--border-katana);
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .project-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-katana);
+      padding: 24px;
+      transition: transform 0.2s, border-color 0.2s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--text-smoke);
+    }
+
+    .project-card h4 {
+      font-size: 1.2rem;
+      color: var(--text-white);
+      margin: 12px 0 8px 0;
+    }
+
+    .project-card p {
+      font-size: 0.92rem;
+      color: var(--text-light);
+      margin-bottom: 20px;
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .tech-pill {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      padding: 4px 8px;
+      background: var(--bg-charcoal);
+      border: 1px solid var(--border-katana);
+      color: var(--text-smoke);
+    }
+
+    .card-links {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      display: flex;
+      gap: 16px;
+    }
+
+    .card-links a {
+      color: var(--text-white);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .card-links a.repo-link {
+      color: var(--text-smoke);
+    }
+
+    .card-links a:hover {
+      opacity: 0.8;
+    }
+
+    /* Stack Grid */
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .stack-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-katana);
+      padding: 24px;
+    }
+
+    .stack-card h4 {
+      font-size: 1.1rem;
+      color: var(--text-white);
+      margin-bottom: 16px;
+      font-family: var(--font-mono);
+    }
+
+    .stack-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* Timeline */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background-color: var(--border-katana);
+    }
+
+    .timeline-item {
+      padding-left: 28px;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -4px;
+      top: 6px;
+      width: 9px;
+      height: 9px;
+      background-color: var(--text-white);
+      border-radius: 50%;
+    }
+
+    .timeline-date {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-smoke);
+      margin-bottom: 4px;
+    }
+
+    .timeline-title {
+      font-size: 1.2rem;
+      color: var(--text-white);
+      font-weight: 600;
+    }
+
+    .timeline-institution {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin-bottom: 12px;
+    }
+
+    .timeline-desc {
+      font-size: 0.95rem;
+      color: var(--text-light);
+    }
+
+    .timeline-desc ul {
+      margin-left: 18px;
+      margin-top: 8px;
+    }
+
+    .timeline-desc li {
+      margin-bottom: 6px;
+    }
+
+    /* Contact Links */
+    .contact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .contact-btn {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      color: var(--text-white);
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-katana);
+      padding: 14px 20px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: background-color 0.2s, border-color 0.2s;
+    }
+
+    .contact-btn:hover {
+      background-color: var(--bg-charcoal);
+      border-color: var(--text-white);
+    }
+
+    .material-symbols-outlined {
+      font-size: 1.1em;
+      vertical-align: middle;
+      line-height: 1;
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+
+    .contact-btn .material-symbols-outlined {
+      font-size: 1.2em;
+    }
+
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-smoke);
+    }
+
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+      .hero-layout { grid-template-columns: 1fr; }
+      .hero-image-wrapper {
+        order: -1;
+        justify-content: flex-start;
+        margin-bottom: 12px;
+      }
+      .hero-image-frame {
+        width: 180px;
+        height: 180px;
+      }
+      .projects-grid, .stack-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="container nav-inner">
+      <a href="#" class="logo-brand">
+        <img src="logo-white.png" alt="NA Monogram" class="logo-brand-icon" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">// 01. ABOUT</a></li>
+        <li><a href="#projects">// 02. PROJECTS</a></li>
+        <li><a href="#stack">// 03. STACK</a></li>
+        <li><a href="#experience">// 04. EXPERIENCE</a></li>
+        <li><a href="#contact">// 05. CONTACT</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero / About -->
+  <header class="hero" id="about">
+    <div class="container">
+      <div class="hero-layout">
+        
+        <!-- Text Info -->
+        <div>
+          <p class="hero-subtitle mono">// NAJI ABDELLAH — 22 YEARS OLD // CASABLANCA, MOROCCO</p>
+          <h1 class="hero-title">Software Engineer & Digital Creator.<br>AI, Security & Design.</h1>
+          <p class="hero-bio">
+            Final-year Software Engineering and Digitalization student at ENSEM Casablanca.<br>I operate at the intersection of technical architecture, cybersecurity, artificial intelligence, and visual design—building robust cloud microservices, AI-assisted security tools, decentralized systems, and high-performance interactive interfaces.
+          </p>
+          <div class="slogan-box">
+            DESIGN YOUR LIFE & CODE YOUR FUTURE
+          </div>
+        </div>
+
+        <!-- Profile Photo -->
+        <div class="hero-image-wrapper">
+          <div class="hero-image-frame">
+            <img src="profile.png" alt="NAJI ABDELLAH" />
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Featured Projects -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">// WORKS & EXPERIMENTS</span>
+        <h2 class="section-title">Featured Projects</h2>
+      </div>
+
+      <!-- 01. SOFTWARE & WEB DEVELOPMENT -->
+      <h3 class="category-title mono">01 // SOFTWARE & WEB DEVELOPMENT</h3>
+      <div class="projects-grid">
+        
+        <!-- LAVORO -->
+        <div class="project-card">
+          <div>
+            <span class="tag">RECRUITMENT PLATFORM</span>
+            <h4>LAVORO</h4>
+            <p>Advanced job recruitment web platform connecting candidates and companies with role-based dashboards, candidate CV management, and interview scheduling.</p>
+          </div>
+          <div>
+            <div class="tech-stack">
+              <span class="tech-pill">Next.js 16</span>
+              <span class="tech-pill">React 19</span>
+              <span class="tech-pill">TypeScript</span>
+              <span class="tech-pill">Prisma</span>
+              <span class="tech-pill">TailwindCSS</span>
+            </div>
+            <div class="card-links">
+              <a href="https://lavoro-chi.vercel.app/" target="_blank">Live Demo ↗</a>
+              <a href="https://github.com/naji-abdellah/LAVORO" target="_blank" class="repo-link">GitHub Repo</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SportConnect -->
+        <div class="project-card">
+          <div>
+            <span class="tag">CLOUD-NATIVE PLATFORM</span>
+            <h4>SportConnect</h4>
+            <p>Modular sports microservices stack featuring notification capabilities, API gateway routing, and responsive frontend integration.</p>
+          </div>
+          <div>
+            <div class="tech-stack">
+              <span class="tech-pill">Spring Boot</span>
+              <span class="tech-pill">React</span>
+              <span class="tech-pill">Docker</span>
+              <span class="tech-pill">REST API</span>
+            </div>
+            <div class="card-links">
+              <a href="https://sportconnect-vert.vercel.app/" target="_blank">Live Demo ↗</a>
+              <a href="https://github.com/naji-abdellah/SPORTCONNECT" target="_blank" class="repo-link">GitHub Repo</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- GREEN Beats -->
+        <div class="project-card">
+          <div>
+            <span class="tag">AUDIO WEB APP</span>
+            <h4>GREEN Beats — Music Player</h4>
+            <p>Responsive, streaming-inspired interactive music player featuring dynamic playbars, playlist/artist search, volume seeking, and custom audio controls.</p>
+          </div>
+          <div>
+            <div class="tech-stack">
+              <span class="tech-pill">HTML5</span>
+              <span class="tech-pill">CSS3</span>
+              <span class="tech-pill">JavaScript ES6</span>
+              <span class="tech-pill">Web Audio API</span>
+            </div>
+            <div class="card-links">
+              <a href="https://code-alpha-music-player-wheat.vercel.app/" target="_blank">Live Demo ↗</a>
+              <a href="https://github.com/naji-abdellah/CodeAlpha_Music_Player" target="_blank" class="repo-link">GitHub Repo</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Red Gallery -->
+        <div class="project-card">
+          <div>
+            <span class="tag">WEB APPLICATION</span>
+            <h4>Red Gallery — Image Gallery</h4>
+            <p>Interactive and responsive image gallery featuring filtered collections, fullscreen lightbox preview modal, and dynamic layout transitions.</p>
+          </div>
+          <div>
+            <div class="tech-stack">
+              <span class="tech-pill">HTML5</span>
+              <span class="tech-pill">CSS3</span>
+              <span class="tech-pill">JavaScript ES6</span>
+            </div>
+            <div class="card-links">
+              <a href="https://redgallery.vercel.app/" target="_blank">Live Demo ↗</a>
+              <a href="https://github.com/naji-abdellah/CodeAlpha_Image_Gallery" target="_blank" class="repo-link">GitHub Repo</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Image Calculator -->
+        <div class="project-card">
+          <div>
+            <span class="tag">WEB UTILITY APP</span>
+            <h4>Image Calculator</h4>
+            <p>Interactive web utility for performing pixel-based image operations, aspect ratio calculations, and visual matrix transformations.</p>
+          </div>
+          <div>
+            <div class="tech-stack">
+              <span class="tech-pill">HTML5</span>
+              <span class="tech-pill">CSS3</span>
+              <span class="tech-pill">JavaScript ES6</span>
+            </div>
+            <div class="card-links">
+              <a href="https://code-alpha-image-calculator.vercel.app/" target="_blank">Live Demo ↗</a>
+              <a href="https://github.com/naji-abdellah/CodeAlpha_Image_Calculator" target="_blank" class="repo-link">GitHub Repo</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 02. CYBERSECURITY, SYSTEMS & SIMULATION -->
+      <h3 class="category-title mono">02 // CYBERSECURITY, SYSTEMS & SIMULATION</h3>
+      <div class="projects-grid">
+
+        <!-- Collaborative IDS Blockchain -->
+        <div class="project-card">
+          <div>
+            <span class="tag">DISTRIBUTED SECURITY & BLOCKCHAIN</span>
+            <h4>Collaborative IDS via Blockchain</h4>
+            <p>Decentralized Intrusion Detection System leveraging consensus mechanisms to share threat intelligence and attack signatures across distributed nodes without a single point of failure.</p>
+          </div>
+          <div>
+            <div class="tech-stack">
+              <span class="tech-pill">Blockchain</span>
+              <span class="tech-pill">Hyperledger</span>
+              <span class="tech-pill">Intrusion Detection</span>
+              <span class="tech-pill">Smart Contracts</span>
+            </div>
+            <div class="card-links">
+              <a href="https://github.com/naji-abdellah/IDS-Collaborative-Blockchain" target="_blank" class="repo-link">View Architecture ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Raw Packet Sniffer -->
+        <div class="project-card">
+          <div>
+            <span class="tag">NETWORK SECURITY</span>
+            <h4>Raw Packet Sniffer & Traffic Analyzer</h4>
+            <p>Low-level network analyzer built to capture live packets, inspect protocol headers (IP, TCP, UDP), and log raw network traffic for security audits.</p>
+          </div>
+          <div>
+            <div class="tech-stack">
+              <span class="tech-pill">Python</span>
+              <span class="tech-pill">Scapy</span>
+              <span class="tech-pill">Sockets</span>
+              <span class="tech-pill">Linux</span>
+            </div>
+            <div class="card-links">
+              <a href="https://github.com/naji-abdellah/CodeAlpha_BasicNetworkSniffer" target="_blank" class="repo-link">View Implementation ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CBC Encryption -->
+        <div class="project-card">
+          <div>
+            <span class="tag">APPLIED CRYPTOGRAPHY</span>
+            <h4>CBC Encryption Engine</h4>
+            <p>Cryptographic module implementing Cipher Block Chaining (CBC) mode with XOR bitwise block operations, custom IV initialization, and PKCS#7 padding handling.</p>
+          </div>
+          <div>
+            <div class="tech-stack">
+              <span class="tech-pill">C++</span>
+              <span class="tech-pill">Python</span>
+              <span class="tech-pill">Cryptography</span>
+              <span class="tech-pill">AES</span>
+            </div>
+            <div class="card-links">
+              <a href="https://github.com/naji-abdellah/CBC-encryption" target="_blank" class="repo-link">View Repository ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Midnight Cat -->
+        <div class="project-card">
+          <div>
+            <span class="tag">C++ & GAME ENGINE</span>
+            <h4>Midnight Cat — Infinite Runner</h4>
+            <p>2D rooftop runner game featuring double-jump physics, dynamic obstacle spawning, distance scoring, and shape-based graphics.</p>
+          </div>
+          <div>
+            <div class="tech-stack">
+              <span class="tech-pill">C++17</span>
+              <span class="tech-pill">SFML 2.5</span>
+              <span class="tech-pill">Canvas / WebGL</span>
+              <span class="tech-pill">OOP</span>
+            </div>
+            <div class="card-links">
+              <a href="https://naji-abdellah.github.io/MIDNIGHT-CAT-GAME/" target="_blank">Live Demo ↗</a>
+              <a href="https://github.com/naji-abdellah/MIDNIGHT-CAT-GAME" target="_blank" class="repo-link">GitHub Repo</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SmartTraffic Simulation -->
+        <div class="project-card">
+          <div>
+            <span class="tag">AI & DESKTOP SIMULATION</span>
+            <h4>SmartTraffic Simulation</h4>
+            <p>Multi-agent traffic system using BDI cognitive architecture, IDM car-following physics, and Pygame compiled to WebAssembly.</p>
+          </div>
+          <div>
+            <div class="tech-stack">
+              <span class="tech-pill">Python</span>
+              <span class="tech-pill">Pygame</span>
+              <span class="tech-pill">Multi-Agent Systems</span>
+              <span class="tech-pill">WebAssembly</span>
+            </div>
+            <div class="card-links">
+              <a href="https://naji-abdellah.github.io/TRAFFIC-SIMULATION/" target="_blank">Live Simulation ↗</a>
+              <a href="https://github.com/naji-abdellah/TRAFFIC-SIMULATION" target="_blank" class="repo-link">GitHub Repo</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- AeroTrack -->
+        <div class="project-card">
+          <div>
+            <span class="tag">TELEMETRY & NETWORK SYSTEMS</span>
+            <h4>AeroTrack — Flight Tracking Platform</h4>
+            <p>Real-time aircraft positioning and flight telemetry system processing live navigational data and network feeds.</p>
+          </div>
+          <div>
+            <div class="tech-stack">
+              <span class="tech-pill">Python</span>
+              <span class="tech-pill">REST APIs</span>
+              <span class="tech-pill">Telemetry</span>
+              <span class="tech-pill">Web</span>
+            </div>
+            <div class="card-links">
+              <a href="https://github.com/naji-abdellah/AeroTrack" target="_blank" class="repo-link">View Repository ↗</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Technical & Creative Stack -->
+  <section id="stack">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">// SKILLS, TOOLING & MINDSET</span>
+        <h2 class="section-title">Technical & Creative Stack</h2>
+      </div>
+
+      <div class="stack-grid">
+        
+        <div class="stack-card">
+          <h4>// LANGUAGES</h4>
+          <div class="stack-pills">
+            <span class="tech-pill">Python</span>
+            <span class="tech-pill">Go</span>
+            <span class="tech-pill">Java</span>
+            <span class="tech-pill">C / C++</span>
+            <span class="tech-pill">PHP</span>
+            <span class="tech-pill">JavaScript</span>
+            <span class="tech-pill">TypeScript</span>
+          </div>
+        </div>
+
+        <div class="stack-card">
+          <h4>// BACK-END & CLOUD</h4>
+          <div class="stack-pills">
+            <span class="tech-pill">Spring Boot</span>
+            <span class="tech-pill">Node.js</span>
+            <span class="tech-pill">Symfony (MVC)</span>
+            <span class="tech-pill">API Gateway</span>
+            <span class="tech-pill">REST APIs</span>
+          </div>
+        </div>
+
+        <div class="stack-card">
+          <h4>// FRONT-END & UI</h4>
+          <div class="stack-pills">
+            <span class="tech-pill">React</span>
+            <span class="tech-pill">Next.js 16</span>
+            <span class="tech-pill">Angular</span>
+            <span class="tech-pill">Dash (Plotly)</span>
+            <span class="tech-pill">WordPress</span>
+            <span class="tech-pill">HTML5 / CSS3</span>
+            <span class="tech-pill">TailwindCSS</span>
+          </div>
+        </div>
+
+        <div class="stack-card">
+          <h4>// BLOCKCHAIN & SECURITY</h4>
+          <div class="stack-pills">
+            <span class="tech-pill">Hyperledger Fabric</span>
+            <span class="tech-pill">Smart Contracts</span>
+            <span class="tech-pill">IPFS</span>
+            <span class="tech-pill">Scapy</span>
+            <span class="tech-pill">Raw Sockets</span>
+            <span class="tech-pill">Cryptography (CBC)</span>
+          </div>
+        </div>
+
+        <div class="stack-card">
+          <h4>// MACHINE LEARNING & AI</h4>
+          <div class="stack-pills">
+            <span class="tech-pill">Scikit-learn</span>
+            <span class="tech-pill">XGBoost</span>
+            <span class="tech-pill">Random Forest</span>
+            <span class="tech-pill">Deep Learning (MLP)</span>
+            <span class="tech-pill">Pandas / NumPy</span>
+          </div>
+        </div>
+
+        <div class="stack-card">
+          <h4>// DATABASES & STORAGE</h4>
+          <div class="stack-pills">
+            <span class="tech-pill">MySQL</span>
+            <span class="tech-pill">MongoDB</span>
+            <span class="tech-pill">Firebase</span>
+            <span class="tech-pill">Prisma ORM</span>
+          </div>
+        </div>
+
+        <div class="stack-card">
+          <h4>// DEVOPS & INFRASTRUCTURE</h4>
+          <div class="stack-pills">
+            <span class="tech-pill">Docker</span>
+            <span class="tech-pill">Git / GitHub</span>
+            <span class="tech-pill">WSL2</span>
+            <span class="tech-pill">Linux (Ubuntu, Kali)</span>
+            <span class="tech-pill">Maven / CMake</span>
+          </div>
+        </div>
+
+        <div class="stack-card">
+          <h4>// CREATIVE & DESIGN SUITE</h4>
+          <div class="stack-pills">
+            <span class="tech-pill">Inkscape</span>
+            <span class="tech-pill">Figma</span>
+            <span class="tech-pill">Canva</span>
+            <span class="tech-pill">GIMP</span>
+            <span class="tech-pill">Adobe Photoshop</span>
+            <span class="tech-pill">Illustrator</span>
+            <span class="tech-pill">Lightroom</span>
+            <span class="tech-pill">CapCut</span>
+            <span class="tech-pill">DaVinci Resolve</span>
+          </div>
+        </div>
+
+        <!-- Mindset & Personal Disciplines -->
+        <div class="stack-card" style="grid-column: 1 / -1;">
+          <h4>// MINDSET & PERSONAL DISCIPLINES</h4>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 12px;">
+            <div style="background: var(--bg-charcoal); border: 1px solid var(--border-katana); padding: 14px;">
+              <p class="mono" style="color: var(--text-white); font-size: 0.85rem; font-weight: 600; margin-bottom: 4px;"><span class="material-symbols-outlined">menu_book</span> Reading</p>
+              <p style="font-size: 0.8rem; color: var(--text-smoke);">Critical Thinking & Deep Focus</p>
+            </div>
+            <div style="background: var(--bg-charcoal); border: 1px solid var(--border-katana); padding: 14px;">
+              <p class="mono" style="color: var(--text-white); font-size: 0.85rem; font-weight: 600; margin-bottom: 4px;"><span class="material-symbols-outlined">palette</span> Graphic Design</p>
+              <p style="font-size: 0.8rem; color: var(--text-smoke);">Creativity, Aesthetics & Innovation</p>
+            </div>
+            <div style="background: var(--bg-charcoal); border: 1px solid var(--border-katana); padding: 14px;">
+              <p class="mono" style="color: var(--text-white); font-size: 0.85rem; font-weight: 600; margin-bottom: 4px;"><span class="material-symbols-outlined">strategy</span> Chess</p>
+              <p style="font-size: 0.8rem; color: var(--text-smoke);">Strategic Adaptability & Problem Solving</p>
+            </div>
+            <div style="background: var(--bg-charcoal); border: 1px solid var(--border-katana); padding: 14px;">
+              <p class="mono" style="color: var(--text-white); font-size: 0.85rem; font-weight: 600; margin-bottom: 4px;"><span class="material-symbols-outlined">directions_run</span> Jogging</p>
+              <p style="font-size: 0.8rem; color: var(--text-smoke);">Discipline, Stamina & Perseverance</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience & Education -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">// CAREER & BACKGROUND</span>
+        <h2 class="section-title">Experience & Education</h2>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 48px;">
+        
+        <!-- Experience Column -->
+        <div>
+          <h3 class="category-title mono" style="margin-top: 0;">01 // PROFESSIONAL EXPERIENCE</h3>
+          <div class="timeline">
+            
+            <div class="timeline-item">
+              <div class="timeline-date">JULY – AUGUST 2026 // CASABLANCA, MOROCCO</div>
+              <div class="timeline-title">PFA Intern — AI-Assisted Application Security</div>
+              <div class="timeline-institution">CIH Bank</div>
+              <div class="timeline-desc">
+                <ul>
+                  <li><strong>Correlation &amp; AI Pipeline:</strong> Designed a pipeline that correlates the results of several security tools (Semgrep, OWASP ZAP, Promptfoo, PentestGPT) using semantic embeddings, with triage by a local LLM (Ollama) aligned with the OWASP Top 10.</li>
+                  <li><strong>DevSecOps Integration (CI/CD):</strong> Integrated a blocking security gate on Critical/High vulnerabilities into GitHub Actions, validated on two applications (Node.js, Java).</li>
+                </ul>
+                <div class="card-links" style="margin-top: 12px;">
+                  <a href="https://github.com/naji-abdellah/pfa-appsec-pipeline" target="_blank" class="repo-link">View Repository ↗</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-date">AUTUMN 2025 // MARRAKECH, MOROCCO</div>
+              <div class="timeline-title">Observation Intern — Web Redesign & Frontend Integration</div>
+              <div class="timeline-institution">Alphath</div>
+              <div class="timeline-desc">
+                <ul>
+                  <li><strong>Integration & Web Design:</strong> Executed a responsive and pixel-perfect redesign of the showcase website using WordPress, developing core custom HTML5/CSS3/JS components to optimize user experience.</li>
+                  <li><strong>Framework Upskilling (Symfony):</strong> Self-trained in Symfony, concluding with the development of a micro-application mastering the MVC architecture, routing, and Twig templating engine.</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Education Column -->
+        <div>
+          <h3 class="category-title mono" style="margin-top: 0;">02 // EDUCATION</h3>
+          <div class="timeline">
+            
+            <div class="timeline-item">
+              <div class="timeline-date">2024 – PRESENT // CASABLANCA, MOROCCO</div>
+              <div class="timeline-title">Engineering Degree — Software Engineering & Digitalization</div>
+              <div class="timeline-institution">ENSEM — École Nationale Supérieure d'Electricité et de Mécanique</div>
+              <div class="timeline-desc">
+                Currently pursuing specialized engineering coursework in cloud-native software engineering, microservices architectures, cybersecurity, and digital transformation.
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-date">2022 – 2024 // FEZ, MOROCCO</div>
+              <div class="timeline-title">Preparatory Classes for Engineering Schools (CPGE)</div>
+              <div class="timeline-institution">Moulay Idriss Preparatory College — MPSI / MP*</div>
+              <div class="timeline-desc">
+                Intensive two-year advanced mathematics, physics, and computer science curriculum preparing for national engineering entrance exams.
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-date">JUNE 2022 // FEZ, MOROCCO</div>
+              <div class="timeline-title">High School Baccalaureate — International Mathematical Sciences (B)</div>
+              <div class="timeline-institution">Bnou El Haytam High School</div>
+              <div class="timeline-desc">
+                Graduated with distinction in advanced international mathematical sciences stream.
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Certifications Column -->
+        <div>
+          <h3 class="category-title mono" style="margin-top: 0;">03 // CERTIFICATIONS</h3>
+          <div class="timeline">
+
+            <div class="timeline-item">
+              <div class="timeline-date">JULY 2026</div>
+              <div class="timeline-title">Networking Basics</div>
+              <div class="timeline-institution">Cisco Networking Academy</div>
+              <div class="card-links">
+                <a href="https://www.credly.com/badges/32c8f8b7-426a-454b-8c55-13e86e9129d0/public_url" target="_blank" rel="noopener noreferrer" class="repo-link">View Credential ↗</a>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-date">NOVEMBER 2025</div>
+              <div class="timeline-title">Artificial Intelligence Fundamentals</div>
+              <div class="timeline-institution">IBM</div>
+              <div class="card-links">
+                <a href="https://www.credly.com/badges/1ba459bf-5ce6-47de-84ce-a7cb192467b6/public_url" target="_blank" rel="noopener noreferrer" class="repo-link">View Credential ↗</a>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-date">OCTOBER 2025</div>
+              <div class="timeline-title">Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate</div>
+              <div class="timeline-institution">Oracle</div>
+              <div class="card-links">
+                <a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=1C6558EC57D2018A5DE1F4F8750E1065C6EA622B704D9CD0E4A6A1C69FC62348" target="_blank" rel="noopener noreferrer" class="repo-link">View Credential ↗</a>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-date">OCTOBER 2025</div>
+              <div class="timeline-title">Responsive Web Design</div>
+              <div class="timeline-institution">freeCodeCamp</div>
+              <div class="card-links">
+                <a href="https://www.freecodecamp.org/certification/fcccf091f2a-d370-4b70-a054-d95d1712d189/responsive-web-design" target="_blank" rel="noopener noreferrer" class="repo-link">View Credential ↗</a>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-date">MAY 2025</div>
+              <div class="timeline-title">Legacy JavaScript Algorithms and Data Structures</div>
+              <div class="timeline-institution">freeCodeCamp</div>
+              <div class="card-links">
+                <a href="https://www.freecodecamp.org/certification/fcccf091f2a-d370-4b70-a054-d95d1712d189/javascript-algorithms-and-data-structures" target="_blank" rel="noopener noreferrer" class="repo-link">View Credential ↗</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Social Links -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">// GET IN TOUCH</span>
+        <h2 class="section-title">Contact & Network</h2>
+      </div>
+
+      <p style="font-size: 1.1rem; color: var(--text-light); max-width: 600px; margin-bottom: 32px;">
+        Open for discussions regarding software engineering opportunities, cybersecurity research, or creative collaboration. Feel free to connect across any of the platforms below:
+      </p>
+
+      <div class="contact-grid">
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=naji.abdellah.cp@gmail.com" target="_blank" rel="noopener noreferrer" class="contact-btn">
+          <span class="material-symbols-outlined">mail</span> Gmail
+        </a>
+        <a href="https://wa.me/212623923563" target="_blank" rel="noopener noreferrer" class="contact-btn">
+          <span class="material-symbols-outlined">chat</span> WhatsApp
+        </a>
+        <a href="https://github.com/naji-abdellah" target="_blank" rel="noopener noreferrer" class="contact-btn">
+          <span class="material-symbols-outlined">code</span> GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/naji-abdellah-834411315/" target="_blank" rel="noopener noreferrer" class="contact-btn">
+          <span class="material-symbols-outlined">work</span> LinkedIn
+        </a>
+        <a href="https://www.facebook.com/naji.abdellah.na" target="_blank" rel="noopener noreferrer" class="contact-btn">
+          <span class="material-symbols-outlined">public</span> Facebook
+        </a>
+        <a href="https://www.instagram.com/naji.abdellah.na" target="_blank" rel="noopener noreferrer" class="contact-btn">
+          <span class="material-symbols-outlined">photo_camera</span> Instagram
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p style="margin-bottom: 8px;">Naji Abdellah &copy; 2026. All rights reserved.</p>
+      <p style="color: var(--text-smoke); font-size: 0.75rem;">
+        Designed & Coded with obsidian geometric aesthetics.
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
